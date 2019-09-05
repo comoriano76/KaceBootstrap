@@ -131,8 +131,8 @@ WHERE
  SETTINGS.NAME='HD_DEFAULT_QUEUE_ID'
 LIMIT 1
 ";
-	$results = mysql_query($query);
-	$num = @mysql_numrows($results);
+	$results = mysqli_query($dbh, $query);
+	$num  = $results->num_rows;
 	if ( $num > 0 && ($row = mysql_fetch_assoc($results)) != NULL && $row['NAME'] != NULL )
 	{
 		$mainQueueID = $row['ID'];
